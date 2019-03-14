@@ -8,7 +8,7 @@ pipeline {
     }
     stage('Unit Test') {
       steps {
-        sh 'ls'
+        sh 'ls -la'
       }
     }
     stage('Publish') {
