@@ -13,7 +13,7 @@ pipeline {
     }
     stage('Publish') {
       steps {
-        sh 'ls'
+        sh 'la'
       }
     }
   }
