@@ -1,19 +1,19 @@
 pipeline {
   agent any
   stages {
-    stage('Build') {
+    stage('Stage1') {
       steps {
-        sh 'ls'
+        sh 'echo "Running Stage 1"'
       }
     }
-    stage('Unit Test') {
+    stage('Stage 2') {
       steps {
-        sh 'ls'
+        sh 'echo "Running Stage 2"'
       }
     }
-    stage('Publish') {
+    stage('Stage 3') {
       steps {
-        sh 'la'
+        sh 'echo "Running Stage 3"'
       }
     }
   }
