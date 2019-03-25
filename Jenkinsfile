@@ -1,29 +1,31 @@
 pipeline {
-  agent any
-  stages {
-    stage('Stage1') {
-      parallel {
-        stage('Stage 1.1') {
-          steps {
-            sh 'echo "Running Stage 1"'
-          }
-        }
-        stage('Stage 1.2.1') {
-          steps {
-            sh 'echo "Running Stage 1.2.1"'
-          }
-        }
-        stage('Stage 1.3') {
-          steps {
-            sh 'echo "Running Stage 1.3"'
-          }
-        }
-      }
+    agent {
+      label 'master'
     }
-    stage('Stage 2') {
-      steps {
-        sh 'echo "Stage 2"'
-      }
-    }
-  }
-}
+    stages {
+        stage('Stage 1') {
+            parallel {
+                stage('Stage 1.1') {
+                    steps {
+                        echo "Running Stage 1.1"
+} }
+               stage('Stage 1.2') {
+                    stages {
+                        stage('Stage 1.2.1') {
+                            steps {
+                                echo "Running Stage 1.2.1"
+                            }
+                        }
+                        stage('Stage 1.2.2') {
+                            steps {
+                                echo "Running Stage 1.2.2"
+} }
+} }
+                stage('Stage 1.3') {
+                    steps {
+                        echo "Running Stage 1.3"
+                    }
+} }
+} }
+}              
+              
